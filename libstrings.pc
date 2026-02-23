@@ -1,0 +1,12 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: avl
+Description: A C language library to create and maintain AVL binary tree.
+URL: NONE
+Version: 1.0.0
+Requires: 
+Libs: -L${exec_prefix}/lib -lavl
+Cflags: -I${prefix}/include
