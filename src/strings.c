@@ -27,8 +27,8 @@
 
 #include "libstrings.h"
 
-static int renumber_action(avl_node *n);
-static int duper_action(avl_node *n);
+static void renumber_action(avl_node *n);
+static void duper_action(avl_node *n);
 
   /**
    *  @fn string *string_new(void)
@@ -700,7 +700,7 @@ int string_node_compare_id(avl_node *a, avl_node *b)
 }
 
   /**
-   *  @fn int renumber_action(avl_node *n)
+   *  @fn void renumber_action(avl_node *n)
    *
    *  @brief callback function for avl_walk(), used by strings_renumber()
    *
@@ -709,7 +709,7 @@ int string_node_compare_id(avl_node *a, avl_node *b)
    *  @return 0
    */
 
-static int renumber_action(avl_node *n)
+static void renumber_action(avl_node *n)
 {
   string_node *sn;
   string *str;
@@ -732,11 +732,10 @@ static int renumber_action(avl_node *n)
   ++_new_id;
 
 exit:
-  return 0;
 }
 
   /**
-   *  @fn int duper_action(avl_node *n)
+   *  @fn void duper_action(avl_node *n)
    *
    *  @brief callback function for avl_walk(), used by strings_dup()
    *
@@ -745,21 +744,21 @@ exit:
    *  @return 0
    */
 
-static int duper_action(avl_node *n)
+static void duper_action(avl_node *n)
 {
   string *str;
   string *nstr;
 
-  if (!n) return 0;
+  if (!n) goto exit;
 
   str = (string *)n->value;
-  if (!str) return 0;
+  if (!str) goto exit;
 
   nstr = string_dup(str);
-  if (!nstr) return 0;
+  if (!nstr) goto exit;
 
   strings_add(nstrs, nstr);
 
-  return 0;
+exit:
 }
 
