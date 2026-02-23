@@ -154,5 +154,6 @@ void print_node(avl_node *n)
          s->value.text);
  
 exit:
+  return;
 }
 

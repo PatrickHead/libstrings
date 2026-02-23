@@ -13,7 +13,7 @@ bin_test_strings_LDADD = lib/libstrings.a $(AVL_LIBS)
 
 include_HEADERS = include/libstrings.h
 
-EXTRA_DIST = windows acdoxygen.m4 amdoxygen.am doxygen.libstrings.cfg libstrings.pc .gitignore
+EXTRA_DIST = windows acdoxygen.m4 amdoxygen.am doxygen.libstrings.cfg libstrings.pc .gitignore .gitattributes
 
 super-clean: clean distclean
 	@find . -name 'Makefile.in' -delete
@@ -50,6 +50,9 @@ install-data-hook:
 uninstall-hook:
 	@rm -rf $(prefix)/share/doc/libstrings
 	@rm -rf $(prefix)/share/pkgconfig/libstrings.pc
+
+clean-local:
+	@(cd windows; make clean)
 
 code-stats:
 	@echo -n " total lines of source code: "; wc -l src/*.[ch] include/*.[ch] | tail -1 | sed -e 's/ total//' -e 's/^  *//'

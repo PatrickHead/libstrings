@@ -732,6 +732,7 @@ static void renumber_action(avl_node *n)
   ++_new_id;
 
 exit:
+  return;
 }
 
   /**
@@ -760,5 +761,6 @@ static void duper_action(avl_node *n)
   strings_add(nstrs, nstr);
 
 exit:
+  return;
 }
 

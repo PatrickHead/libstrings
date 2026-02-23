@@ -1,5 +1,5 @@
-Makefile
-Makefile.in
+./Makefile
+./Makefile.in
 aclocal.m4
 autom4te.cache/
 config.log
@@ -15,3 +15,7 @@ src/*.o
 src/config.h
 src/config.h.in
 src/.deps
+windows/*.exe
+windows/*.obj
+windows/*.a
+windows/*.lib
