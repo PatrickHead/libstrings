@@ -3,10 +3,10 @@ exec_prefix=@exec_prefix@
 libdir=@libdir@
 includedir=@includedir@
 
-Name: avl
-Description: A C language library to create and maintain AVL binary tree.
+Name: libstrings
+Description: A C language library to create and maintain an indexed list of strings
 URL: NONE
 Version: @VERSION@
 Requires: 
-Libs: -L@libdir@ -lavl
+Libs: -L@libdir@ -lstrings
 Cflags: -I@includedir@
