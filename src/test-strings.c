@@ -24,7 +24,7 @@
 
 #include "libstrings.h"
 
-int print_node(avl_node *n);
+void print_node(avl_node *n);
 
 char *keys[] = {
   "hello",
@@ -142,17 +142,17 @@ int main(int argc, char **argv)
   return 0;
 }
 
-int print_node(avl_node *n)
+void print_node(avl_node *n)
 {
   string_node *s = (string_node *)n;
 
-  if (!s) return 0;
+  if (!s) goto exit;
 
   printf("id=%d,ref_cnt=%d,text='%s'\n",
          s->value.id,
          s->value.ref_cnt,
          s->value.text);
  
-  return 0;
+exit:
 }
 
