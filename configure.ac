@@ -30,7 +30,7 @@ AC_PROG_RANLIB
 # Require pkg-config
 PKG_PROG_PKG_CONFIG
 
-# Check for libxml2
+# Check for avl library
 PKG_CHECK_MODULES([AVL], [avl >= 1.0.0],
   [AC_DEFINE([HAVE_AVL], [1], [Define if avl is available])],
   [AC_MSG_ERROR([avl not found. Install avl library.])]
